@@ -170,7 +170,7 @@
   justify-content: space-between;
   height: 28px;
   padding-left: 16px;
-  padding-right: 18px; /* slightly reduced for tighter marker gap */
+  padding-right: 18px;
   background: #f5f5f5;
   border: none;
   box-shadow: none;
@@ -179,14 +179,12 @@
   user-select: none;
   transition: none;
   overflow: visible;
-  line-height: 1; /* allow marker to better match heading vertical alignment */
+  line-height: 1;
 }
 
 .accordion.accordion31 details summary::-webkit-details-marker {
   vertical-align: middle;
   margin-left: auto;
-
-  /* Reduce marker size for webkit browsers */
   font-size: 13px;
 }
 
@@ -200,7 +198,7 @@
   margin: 0;
   padding: 0;
   font-size: 13px;
-  font-weight: 400;  /* lighter for better match */
+  font-weight: 400;
   color: #222;
   font-family: var(--heading-font-family), sans-serif;
   line-height: 1;
@@ -210,7 +208,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  letter-spacing: -0.02em; /* a bit tighter */
+  letter-spacing: -0.02em;
 }
 
 .accordion.accordion31 details summary:focus,
@@ -228,4 +226,99 @@
 .accordion.accordion31 details[open] .accordion-item-body {
   border-top: none;
   background: #f5f5f5;
+}
+
+
+.accordion.accordion23 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-sizing: border-box;
+}
+
+/* Accordion items stacked vertically, clean divider */
+.accordion.accordion23 details {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.accordion.accordion23 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion23 details + details {
+  margin-top: 0;
+}
+
+/* Summary row: horizontal flex, left label, right background icon, with correct spacing */
+.accordion.accordion23 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 36px;
+  background: #f5f5f5;
+  padding-left: 16px;
+  padding-right: 36px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.2s;
+  position: relative;
+
+  /* Add plus as background-image without content or text injection */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><text x="3" y="13" font-size="16" font-family="Arial" fill="%23222">+</text></svg>');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px 16px;
+}
+
+/* Remove any previous rules hiding markers or icons */
+.accordion.accordion23 summary::after {
+  display: none;
+}
+
+/* Accordion summary label styling */
+.accordion.accordion23 summary h2 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--heading-font-family), sans-serif;
+  text-transform: none;
+  letter-spacing: normal;
+  flex: 0 1 auto;
+}
+
+/* Accordion body area styling */
+.accordion.accordion23 .accordion-item-body {
+  padding: 16px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Responsive: Ensure summary label and marker don't overlap on smaller screens */
+@media (width <= 600px) {
+  .accordion.accordion23 summary {
+    padding-left: 8px;
+    padding-right: 28px;
+    min-height: 32px;
+    background-position: right 8px center;
+  }
+
+  .accordion.accordion23 .accordion-item-body {
+    padding: 8px;
+  }
+}
+
+/* Subtle hover effect for summary to increase interactive affordance */
+.accordion.accordion23 summary:hover,
+.accordion.accordion23 summary:focus {
+  background: #ececec;
 }

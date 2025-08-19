@@ -1,9 +1,17 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
-  gap: 0.5ch;
+  gap: 12px;
   max-width: 100%;
   font-size: var(--body-font-size-xs);
   overflow-x: auto;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #ececec;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  min-height: 36px;
 }
 
 @media (width >= 600px) {
@@ -47,12 +55,123 @@
 }
 
 .tabs .tabs-panel {
-  margin-top: -1px;
-  padding: 24px;
-  border: 1px solid #dadada;
+  margin-top: 8px;
+  padding: 16px;
+  border: 1px solid #ececec;
   overflow: auto;
+  display: none;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #666;
+  box-sizing: border-box;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs {
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  font-family: var(--body-font-family);
+}
+
+/* Use flex for tab row: compact, dynamic-width tabs that don't over-stretch */
+
+/* Tab Buttons: flexible, compact width, prevent wrapping, handle overflow with ellipsis */
+.tabs .tabs-list .tabs-tab {
+  flex: 0 1 200px;
+  min-width: 80px;
+  max-width: 220px;
+  box-sizing: border-box;
+  background: #fff;
+  border: none;
+  outline: none;
+  height: 36px;
+  margin: 0;
+  padding: 0 18px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #222;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 0;
+  box-shadow: none;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tab label: left-aligned, single line, ellipsis for overflow */
+.tabs .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+
+/* Active Tab Styling: red color, bold, underline as wide as tab */
+.tabs .tabs-list .tabs-tab[aria-selected='true'] {
+  color: #e4002b;
+  font-weight: 700;
+  border-bottom: 2px solid #e4002b;
+  background: #fff;
+  cursor: default;
+}
+
+/* Inactive Tab Styling: normal weight, dark color, no underline */
+.tabs .tabs-list .tabs-tab[aria-selected='false'],
+.tabs .tabs-list .tabs-tab:not([aria-selected='true']) {
+  color: #222;
+  font-weight: 400;
+  border-bottom: 2px solid transparent;
+  background: #fff;
+}
+
+/* Content Area (Tabs Panel): visually tight, soft border, rounded, close to tab row */
+
+.tabs .tabs-panel[aria-hidden='false'] {
+  display: block;
+}
+
+.tabs .tabs-panel > div:last-child {
+  margin-bottom: 0;
+}
+
+.tabs .tabs-panel > div {
+  margin-bottom: 12px;
+}
+
+/* Responsive: On small screens, reduce tab padding and font size */
+@media (width <= 600px) {
+  .tabs .tabs-list {
+    gap: 4px;
+  }
+
+  .tabs .tabs-list .tabs-tab {
+    padding: 0 8px 0 5px;
+    font-size: 13px;
+    min-width: 60px;
+    max-width: 120px;
+    height: 32px;
+  }
+
+  .tabs .tabs-panel {
+    padding: 10px 3px;
+    font-size: 13px;
+  }
 }

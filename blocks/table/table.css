@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +51,137 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
 .table.block.no-header table tbody tr {
   border-top: 1px solid;
 }
 
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
-.table.block.bordered table th,
-.table.block.bordered table td {
-  border: 1px solid;
+
+.table.bordered {
+  width: 100%;
+  overflow-x: auto;
+  background: #fff;
+  padding: 0;
+}
+
+.table.bordered table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+/* Hide unused columns to visually create a 3-column table */
+.table.bordered th:nth-child(3),
+.table.bordered th:nth-child(5),
+.table.bordered th:nth-child(6),
+.table.bordered td:nth-child(3),
+.table.bordered td:nth-child(5),
+.table.bordered td:nth-child(6) {
+  display: none;
+}
+
+/* Even column widths */
+.table.bordered th,
+.table.bordered td {
+  width: 33.33%;
+}
+
+/* Header styling */
+.table.bordered th {
+  background: #f5f5f5;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 16px; /* reduced for more compact header */
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Cell styling, more compact and always top-aligned */
+.table.bordered td {
+  background: #fff;
+  color: #222;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 16px; /* reduced for tighter rows */
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+  text-align: left;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+/* Remove flex centering from first column */
+.table.bordered td:first-child {
+  vertical-align: top;
+  text-align: left;
+}
+
+/* Right-most cell (with image), align content to top and center horizontally */
+.table.bordered td:nth-child(4) {
+  vertical-align: top;
+  text-align: center;
+}
+
+.table.bordered td:nth-child(4) > p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* top align */
+  margin: 0;
+  height: 100%;
+}
+
+/* Image styling in right-most cell, group image and caption tightly at top */
+.table.bordered td:nth-child(4) picture,
+.table.bordered td:nth-child(4) img {
+  display: block;
+  margin: 0 auto 4px;
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+.table.bordered td:nth-child(4) br {
+  display: none;
+}
+
+.table.bordered td:nth-child(4) p > *:not(:first-child) {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #222;
+  text-align: center;
+}
+
+/* Tighter spacing for compact rows */
+.table.bordered tr {
+  height: auto;
+}
+
+/* Remove default paragraph spacing for tight alignment */
+.table.bordered p {
+  margin: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .table.bordered th,
+  .table.bordered td {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .table.bordered td:nth-child(4) picture,
+  .table.bordered td:nth-child(4) img {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+  }
 }

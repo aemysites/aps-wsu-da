@@ -94,12 +94,6 @@
       "id": "7c969a3ca373206be26ffe48821b9fbbf841180a"
     },
     {
-      "url": "https://library.westernsydney.edu.au/about_us/rules_policies",
-      "source": "SITEMAPS",
-      "targetPath": "/about-us/rules-policies",
-      "id": "5be4ffd36f651cf57f0d073227fd94891cb3f87b"
-    },
-    {
       "url": "https://library.westernsydney.edu.au/about_us/rules_policies/code_of_conduct",
       "source": "SITEMAPS",
       "targetPath": "/about-us/rules-policies/code-of-conduct",
@@ -158,12 +152,6 @@
       "source": "SITEMAPS",
       "targetPath": "/archived-content/2023-web-presence-update/evaluating-success/impact",
       "id": "f966c264fdc005827e8103ad37e291824388cbb9"
-    },
-    {
-      "url": "https://library.westernsydney.edu.au/archived_content/2023_web_presence_update/evaluating-success/impact/communicating_impact",
-      "source": "SITEMAPS",
-      "targetPath": "/archived-content/2023-web-presence-update/evaluating-success/impact/communicating-impact",
-      "id": "a149ab9a7ac3f83a55d0cb16861fd1977fcd2dd2"
     },
     {
       "url": "https://library.westernsydney.edu.au/archived_content/2023_web_presence_update/evaluating-success/impact/impact_performance",
@@ -380,12 +368,6 @@
       "source": "SITEMAPS",
       "targetPath": "/implementation-instruction/lorem-ipsum",
       "id": "113e13c5d64f39c2d80c6b33abffe65b8d6574b3"
-    },
-    {
-      "url": "https://library.westernsydney.edu.au/library_hours",
-      "source": "SITEMAPS",
-      "targetPath": "/library-hours",
-      "id": "e53cb3757a502f18403d09f3a5461d3ae8ea3dd0"
     },
     {
       "url": "https://library.westernsydney.edu.au/page-not-found",

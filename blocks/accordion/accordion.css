@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,101 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion25 {
+  background: #fff;
+  border-radius: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove borders and spacing around each details item */
+.accordion.accordion25 details {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Use browser-native marker: do not use flex or grid on summary */
+.accordion.accordion25 summary {
+  background: #fff;
+  min-height: 40px;
+  padding: 12px 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+
+  /* Provide extra right padding for balance */
+  padding-right: 24px;
+}
+
+/* Divider between summary rows */
+.accordion.accordion25 details:not(:last-of-type) > summary {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Label styling in summary */
+.accordion.accordion25 summary h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keep browser-native marker visible (left side) */
+.accordion.accordion25 summary::-webkit-details-marker,
+.accordion.accordion25 summary::marker {
+  display: initial;
+}
+
+/* Remove custom marker styling if present */
+.accordion.accordion25 summary::after {
+  display: none;
+}
+
+/* Remove background color change on hover/focus/open for summary */
+.accordion.accordion25 summary:focus,
+.accordion.accordion25 summary:hover,
+.accordion.accordion25[open] summary {
+  background: #fff;
+}
+
+/* Accordion item body: match padding and font styling for content area */
+.accordion.accordion25 .accordion-item-body {
+  padding: 16px;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #222;
+  border: none;
+}
+
+/* Responsive: maintain padding and font sizing on small screens */
+@media (width <= 600px) {
+  .accordion.accordion25 summary {
+    padding-left: 8px;
+    padding-right: 12px;
+    font-size: 13px;
+  }
+
+  .accordion.accordion25 .accordion-item-body {
+    padding: 10px;
+    font-size: 13px;
+  }
 }
